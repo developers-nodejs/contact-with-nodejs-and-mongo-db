@@ -17,11 +17,10 @@ app.use(body_parser.urlencoded({ extended: true }));
 
 //database connectivity
 mongoose.connect(
-  "mongodb+srv://developeracc012:kilamkilam@cluster0.67ncrtx.mongodb.net/ContactDB",
+  process.env.MONGO_URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    // Additional options can be included here
   },
   (err) => {
     if (!err) {
@@ -62,6 +61,7 @@ app.post("/contactForm", (req, res) => {
     if (!foundList) {
       contactData.save((err) => {
         if (!err) {
+
           res.json([
             {
               response: "success",
@@ -80,7 +80,7 @@ app.post("/contactForm", (req, res) => {
     } else {
       res.json([
         {
-          response: "exists",
+          response: "exists"
         },
       ]);
       console.log("email id [" + email + "] alredy exists");
