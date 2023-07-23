@@ -37,6 +37,7 @@ $(document).ready(function () {
           } else 
           if(data[0].response === "error-while-inserting-data"){
             errorWhileInsertingDataToast();
+            element.classList.add("visible");
           }
           else{
             element.classList.add("visible");
@@ -81,7 +82,7 @@ function errorWhileInsertingDataToast(){
     document.getElementById("email-error").innerText =
       "Email Alredy In Use, Use another One";
     Toastify({
-      text: "Email Alredy In Use, Use another One",
+      text: "Error while inserting new data",
       className: "info",
       style: {
         background: "linear-gradient(to right, tomato, red)",
