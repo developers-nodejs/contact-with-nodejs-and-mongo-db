@@ -25,7 +25,7 @@ $(document).ready(function () {
         function (data, status) {
           console.log(data);
 
-          if (data[0].doesExist === true) {
+          if (data[0].response === "exists") {
             document.getElementById("email").style.border = "thin solid red";
             document.getElementById("email-error").innerText =
               "Email Alredy In Use";
@@ -34,7 +34,11 @@ $(document).ready(function () {
             //   document.getElementById("email").value = "email Alredy In Use";
             emailAlredyExist();
             element.classList.add("visible");
-          } else {
+          } else 
+          if(data[0].response === "error-while-inserting-data"){
+            errorWhileInsertingDataToast();
+          }
+          else{
             element.classList.add("visible");
             document.getElementById("email").style.border = "none";
             successToast();
@@ -67,8 +71,22 @@ function emailAlredyExist() {
     text: "Email Alredy In Use, Use another One",
     className: "info",
     style: {
-      background: "linear-gradient(to right, tomato, red)",
+      background: "linear-gradient(to right, tomato, orange)",
     },
     position: "center",
   }).showToast();
+}
+
+function errorWhileInsertingDataToast(){
+    document.getElementById("email-error").innerText =
+      "Email Alredy In Use, Use another One";
+    Toastify({
+      text: "Email Alredy In Use, Use another One",
+      className: "info",
+      style: {
+        background: "linear-gradient(to right, tomato, red)",
+      },
+      position: "center",
+    }).showToast();
+
 }

@@ -56,11 +56,16 @@ app.post("/contactForm", (req, res) => {
     if (!foundList) {
       contactData.save((err) => {
         if (err) {
+          res.json([
+            {
+              response: "error-while-inserting-data",
+            },
+          ]);
           console.log("Error while putting new data", +err);
         } else {
           res.json([
             {
-              doesExist: false,
+              response: "exists",
             },
           ]);
           console.log("new data saved");
