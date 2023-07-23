@@ -51,7 +51,11 @@ app.post("/contactForm", (req, res) => {
     comment: comment,
   });
 
+  console.log(name);
+  console.log(phone);
   console.log(email);
+  console.log(comment);
+
   //insert new data and checking for alredy exists by email
   contact.findOne({ email: email }, (err, foundList) => {
     if (!foundList) {
