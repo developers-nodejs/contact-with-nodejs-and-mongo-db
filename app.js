@@ -17,10 +17,11 @@ app.use(body_parser.urlencoded({ extended: true }));
 
 //database connectivity
 mongoose.connect(
-  process.env.MONGO_URL,
+  "mongodb+srv://developeracc012:kilamkilam@cluster0.67ncrtx.mongodb.net/ContactDB",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    // Additional options can be included here
   },
   (err) => {
     if (!err) {
@@ -60,26 +61,26 @@ app.post("/contactForm", (req, res) => {
   contact.findOne({ email: email }, (err, foundList) => {
     if (!foundList) {
       contactData.save((err) => {
-        if (err) {
-          res.json([
-            {
-              response: "error-while-inserting-data",
-            },
-          ]);
-          console.log("Error while putting new data", +err);
-        } else {
+        if (!err) {
           res.json([
             {
               response: "success",
             },
           ]);
           console.log("new data saved");
+        } else {
+          res.json([
+            {
+              response: "error-while-inserting-data",
+            },
+          ]);
+          console.log("Error while putting new data", +err);
         }
       });
     } else {
       res.json([
         {
-          response: "exists"
+          response: "exists",
         },
       ]);
       console.log("email id [" + email + "] alredy exists");
