@@ -65,7 +65,7 @@ app.post("/contactForm", (req, res) => {
         } else {
           res.json([
             {
-              response: "exists",
+              response: "success",
             },
           ]);
           console.log("new data saved");
@@ -74,7 +74,7 @@ app.post("/contactForm", (req, res) => {
     } else {
       res.json([
         {
-          doesExist: true,
+          response: "exists"
         },
       ]);
       console.log("email id [" + email + "] alredy exists");
