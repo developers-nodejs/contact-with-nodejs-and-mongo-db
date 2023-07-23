@@ -15,18 +15,15 @@ app.use(express.static("public"));
 //enabled to get data from user form data
 app.use(body_parser.urlencoded({ extended: true }));
 
+const db = "mongodb+srv://developeracc012:kilamkilam@cluster0.67ncrtx.mongodb.net/ContactDB";
 //database connectivity
 mongoose.connect(
-  process.env.MONGO_URL,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
+  db,
   (err) => {
     if (!err) {
       console.log("DB CONNECTED SUCCESSFULLY");
     }else{
-      console.log("Error while connecting to DB");
+      console.log("Error while connecting to DB"+ err);
     }
   }
 );
