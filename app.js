@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
 app.post("/contactForm", (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
-  const phone = req.body.phno;
+  const phone = req.body.phoneno;
   const comment = req.body.comment;
 
   //new data obj
