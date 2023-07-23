@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact form</title>
+
+    <link rel="stylesheet" type="text/css" href="css/contact_from_css.css" />
+
+    <!-- Add icon library  for spinner-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- adding toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1 class="main_heading">Contact From</h1>
+        <h5 class="heading2">please fill all texts in the fields</h5>
+      </header>
+
+      <div class="container2">
+        <p>
+          <label for="name"
+            >Your Name:
+            <span id="name-error" class="error-visible">Error</span></label
+          >
+          <input
+            type="text"
+            class="box"
+            id="name"
+            name="name"
+            placeholder="Your Full Name"
+            onchange
+            onpropertychange
+            onkeyuponpaste
+            oninput="validate('name')"
+            autofocus
+          />
+        </p>
+        <p>
+          <label for="email"
+            >Your Email:
+            <span id="email-error" class="error-visible">Error</span></label
+          >
+          <input
+            type="email"
+            class="box"
+            id="email"
+            name="email"
+            onchange
+            onpropertychange
+            onkeyuponpaste
+            oninput="validateEmail()"
+            placeholder="Valid Email Address"
+            
+          />
+        </p>
+
+        <p>
+          <label for="phoneno"
+            >Phone:<span id="phone-error" class="error-visible"
+              >Error</span
+            ></label
+          >
+          <input
+            type="number"
+            max="10"
+            class="box"
+            id="phno"
+            name="phno"
+            placeholder="Mobile"
+          />
+        </p>
+
+        <p>
+          <label for="comment"
+            >Comment
+            <span id="comment-error" class="error-visible">Error</span></label
+          >
+          <textarea
+            class="box"
+            name="comment"
+            id="comment"
+            cols="30"
+            rows="4"
+            placeholder="Comment here.."
+          ></textarea>
+        </p>
+
+        <button class="buttonload" type="submit" id="submit">
+          <i id="loader" class="fa fa-spinner fa-spin visible"></i>Submit
+        </button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <!-- validation -->
+    <script src="javascript/validate.js"></script>
+
+    <!-- script js -->
+    <script src="javascript/script.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

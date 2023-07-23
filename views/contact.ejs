@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contacts</title>
+    <link rel="stylesheet" href="css/contact-style.css">
+  </head>
+  <body>
+    <h1>Fetching Data From Database</h1>
+    <div class="main-container">
+      
+      <% contactList.forEach(function(contact){ %>
+
+      <div class="contact-data">
+        <p><Strong>ID: </Strong> <%= contact._id %></p>
+        <p><Strong>NAME: </Strong><%= contact.name %></p>
+        <p><Strong>EMAIL: </Strong><%= contact.email %></p>
+        <p><strong>PHONE: </strong><%= contact.phone %></p>
+        <p><strong>COMMENT:</strong> <%= contact.comment %></p>
+      </div>
+      <% }) %>
+    </div>
+  </body>
+</html>
